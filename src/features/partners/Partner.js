@@ -1,5 +1,6 @@
+import React from 'react';
+
 const Partner = ({ partner }) => {
-    const { PARTNERS } = partner;
 
     if (partner) {
         const { image, name, description } = partner;
