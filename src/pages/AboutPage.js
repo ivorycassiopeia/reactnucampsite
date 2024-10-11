@@ -6,7 +6,7 @@ import React from 'react';
 const AboutPage = () => {
     return (
         <Container>
-            <SubHeader current='About Us' detail={true} />
+            <SubHeader current='About Us' />
             <Row className='row-content'>
                 <Col sm='6'>
                     <h3>Our Mission</h3>

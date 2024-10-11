@@ -6,7 +6,7 @@ import React from 'react';
 const CampsitesDirectoryPage = () => {
     return (
         <Container>
-            <SubHeader current='Directory' detail={true} />
+            <SubHeader current='Directory' />
             <CampsitesList />
         </Container>
     );
