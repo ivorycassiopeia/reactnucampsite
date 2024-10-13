@@ -1,6 +1,7 @@
 import { Col } from 'reactstrap';
 import Comment from './Comment';
 import { selectCommentsByCampsiteId } from './commentsSlice';
+import CommentForm from './CommentForm';
 import React from 'react';
 
 const CommentsList = ({ campsiteId }) => {
@@ -13,9 +14,11 @@ const CommentsList = ({ campsiteId }) => {
                 {comments.map((comment) => {
                     return <Comment key={comment.id} comment={comment} />;
                 })}
-            </Col>
+                <CommentForm campsiteId={campsiteId}></CommentForm>
+            </Col >
         );
     }
+
     return (
         <Col md='5' className='m-1'>
             There are no comments for this campsite yet.
