@@ -1,30 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { USERS } from '../../app/shared/USERS';
 
-const initialState = (currentUser) => {
-    return (null)
+const initialState = {
+    currentUser: null
 };
 
 const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers = ({ setCurrentUser }) => {
-        state, action
-            ({ ...state, currentUser: action.payload })
+    reducers: {
+        setCurrentUser: (state, action) => {
+            return {
+                ...state, currentUser: action.payload
+            }
+        }
     }
 });
 
-export const userReducer = (userSlice.reducer) => {
-    return USERS.filter(
-        (user) => user.currentUser === parseInt()
-    );
-};
+export const userReducer = userSlice.reducer;
 
-export const setCurrentUser = (userSlice.actions) => {
-    return USERS.filter(
-        (user) => user.currentUser === parseInt()
-    );
-};
+export const { setCurrentUser } = userSlice.actions;
 
 export const selectCurrentUser = (state) => {
     return state.user.currentUser

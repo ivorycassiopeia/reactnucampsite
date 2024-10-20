@@ -33,9 +33,7 @@ const CommentForm = ({ campsiteId }) => {
 
             <Modal isOpen={modalOpen}>
 
-                <ModalHeader toggle={() => setModalOpen(false)}>
-                    Add Comment
-                </ModalHeader>
+                <ModalHeader toggle={() => setModalOpen(false)}>Add Comment</ModalHeader>
 
                 <ModalBody>
                     <Formik
@@ -49,9 +47,7 @@ const CommentForm = ({ campsiteId }) => {
                     >
                         <Form>
                             <FormGroup>
-                                <Label htmlFor='rating'>
-                                    Rating
-                                </Label>
+                                <Label htmlFor='rating'>Rating</Label>
                                 <Field
                                     name='rating'
                                     as='select'

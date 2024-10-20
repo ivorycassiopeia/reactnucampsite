@@ -12,9 +12,11 @@ import {
 import { Formik, Field, Form } from 'formik';
 import defaultAvatar from '../../app/assets/img/unicorn.png';
 import { current } from '@reduxjs/toolkit';
+import React from 'react';
 
-function UserLoginForm({ }) => {
+const UserLoginForm = () => {
     const [loginModalOpen, setLoginModalOpen] = useState(false);
+
     return (
         <>
             <span className='navbar-text ml-auto'>
@@ -27,9 +29,7 @@ function UserLoginForm({ }) => {
                         />
                     </div>
                 ) : (
-                    <Button
-                        outline
-                        onClick={() => setLoginModalOpen(true)}
+                    <Button outline onClick={() => setLoginModalOpen(true)}
                         style={{ color: 'white', border: '1px solid white' }}
                     >
                         <i className='fa fa-sign-in fa-lg' /> Login
@@ -39,8 +39,15 @@ function UserLoginForm({ }) => {
 
             <Modal isOpen={loginModalOpen}>
                 <ModalHeader toggle={() => setLoginModalOpen(false)}>Login</ModalHeader>
+
                 <ModalBody>
-                    <Formik initialValues={{ username="", password="" }} onSubmit={{ handleLogin }}>
+                    <Formik
+                        initialValues={{
+                            username: "",
+                            password: ""
+                        }}
+                        onSubmit={handleLogin}
+                    >
                         <Form>
                             <FormGroup>
                                 <Label htmlFor='username'>Username</Label>
