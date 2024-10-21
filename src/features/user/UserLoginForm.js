@@ -9,13 +9,28 @@ import {
     Label,
     Button
 } from 'reactstrap';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { validateUserLoginForm } from '../../utils/validateUserLoginForm';
 import defaultAvatar from '../../app/assets/img/unicorn.png';
-import { current } from '@reduxjs/toolkit';
 import React from 'react';
 
 const UserLoginForm = () => {
     const [loginModalOpen, setLoginModalOpen] = useState(false);
+
+    const currentUser = useSelector(selectCurrentUser);
+    const dispatch = useDispatch();
+
+    const handleLogin = (values) => {
+        const currentUser =
+        {
+            id: Date.now(),
+            avatar: defaultAvatar,
+            username: values.username,
+            password: values.password
+        };
+        dispatch(setCurrentUser(currentUser));
+        setLoginModalOpen(false);
+    };
 
     return (
         <>
@@ -39,14 +54,14 @@ const UserLoginForm = () => {
 
             <Modal isOpen={loginModalOpen}>
                 <ModalHeader toggle={() => setLoginModalOpen(false)}>Login</ModalHeader>
-
                 <ModalBody>
                     <Formik
                         initialValues={{
                             username: "",
-                            password: ""
+                            password: "",
                         }}
                         onSubmit={handleLogin}
+                        validate={validateUserLoginForm}
                     >
                         <Form>
                             <FormGroup>
@@ -57,6 +72,9 @@ const UserLoginForm = () => {
                                     placeholder='Username'
                                     className='form-control'
                                 />
+                                <ErrorMessage name='username'>
+                                    {(msg) => <p className='text-danger'>{msg}</p>}
+                                </ErrorMessage>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor='password'>Password</Label>
@@ -66,6 +84,9 @@ const UserLoginForm = () => {
                                     placeholder='Password'
                                     className='form-control'
                                 />
+                                <ErrorMessage name='password'>
+                                    {(msg) => <p className='text-danger'>{msg}</p>}
+                                </ErrorMessage>
                             </FormGroup>
                             <Button type='submit' color='primary'>Login</Button>
                         </Form>
@@ -75,22 +96,6 @@ const UserLoginForm = () => {
         </>
 
     )
-};
-
-const currentUser = useSelector(selectCurrentUser);
-
-const dispatch = useDispatch();
-
-const handleLogin = (values) => {
-    const currentUser =
-    {
-        id: Date.now(),
-        avatar: defaultAvatar,
-        username: values.username,
-        password: values.password
-    };
-    dispatch() = setCurrentUser(currentUser);
-    setLoginModalOpen(false);
 };
 
 export default UserLoginForm;
