@@ -7,6 +7,7 @@ export const fetchCampsites = createAsyncThunk(
     'campsites/fetchCampsites',
     async () => {
         const response = await fetch(baseUrl + 'campsites');
+
         if (!response.ok) {
             return Promise.reject('Unable to fetch, status: ' + response.status);
         }
@@ -61,5 +62,5 @@ export const selectFeaturedCampsite = (state) => {
         isLoading: state.campsites.isLoading,
         errMsg: state.campsites.errMsg
     };
-};
+}
 

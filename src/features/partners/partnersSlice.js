@@ -55,4 +55,4 @@ export const selectFeaturedPartner = (state) => {
         isLoading: state.partners.isLoading,
         errMsg: state.partners.errMsg
     };
-};
+}
