@@ -51,4 +51,4 @@ export const selectFeaturedPromotion = (state) => {
         isLoading: state.promotions.isLoading,
         errMsg: state.promotions.errMsg
     };
-}
+};

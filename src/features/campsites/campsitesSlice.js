@@ -62,5 +62,5 @@ export const selectFeaturedCampsite = (state) => {
         isLoading: state.campsites.isLoading,
         errMsg: state.campsites.errMsg
     };
-}
+};
 
