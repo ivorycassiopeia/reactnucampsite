@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 //import { PARTNERS } from '../../app/shared/PARTNERS';
 import { baseUrl } from '../../app/shared/baseUrl';
 import { mapImageURL } from '../../utils/mapImageURL';
-//import { selectAll } from '@testing-library/user-event/dist/cjs/event/index.js';
 
 export const fetchPartners = createAsyncThunk(
     'partners/fetchPartners',
