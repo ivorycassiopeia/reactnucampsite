@@ -6,8 +6,8 @@ import Error from '../../components/Error';
 import Loading from '../../components/Loading';
 import React from 'react';
 
-const PartnersList = ({ partner }) => {
-    const partners = useSelector(selectAllPartners(partner));
+const PartnersList = () => {
+    const partners = useSelector(selectAllPartners);
     const isLoading = useSelector((state) => state.partners.isLoading);
     const errMsg = useSelector((state) => state.partners.errMsg);
 
